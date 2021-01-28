@@ -1,0 +1,25 @@
+import os
+import xlwt
+import xlrd
+#新建文件夹:
+def mkdir(path):
+    folder = os.path.exists(path)
+    if not folder:
+        os.makedirs(path)
+        print("创建成功：",path)
+    else:
+        print("目录已存在：",path)
+#调用函数
+file_folder = "C://Users/hp/Desktop/stock/"
+mkdir(file_folder)
+# 新建excel
+file_name = "stock-list.xls"
+excel = xlwt.Workbook()
+# 增加sheet表
+sheet = excel.add_sheet('stock')
+#将矩阵导入excel
+[h,l]=data.shape
+for i in range(h):
+    for j in range(l):
+        sheet.write(i,j,data[i,j])
+excel.save(file_folder+file_name)
